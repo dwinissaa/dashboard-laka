@@ -101,14 +101,12 @@
                     <div class="row">
                         <div class="col-lg-6 grid-margin stretch-card">
                             <div class="card">
-                                <div class="card-body dashboard-tabs p-0">
-                                    <h3 class="title-dash font-weight-bold mb-2">Jumlah Korban Tewas menurut&nbsp;<span id="ChangeThis-die">Bulan</span></h3>
-                                    <div align="center" style="margin-top:20px">
-                                        <input type="radio" name="die" value="month-die" id="month-die" onclick="Clicked_Die()" checked><label for="month-die">&nbsp;&nbsp;Bulan&nbsp;&nbsp;</label>
-                                        <input type="radio" name="die" value="day-die" id="day-die" onclick="Clicked_Die()"><label for="day-die">&nbsp;&nbsp;Hari&nbsp;&nbsp;</label>
-                                    </div>
-                                    <canvas id="linebar-chartcanvas-die"></canvas>
+                                <h3 class="title-dash font-weight-bold mb-2">Jumlah Korban Tewas menurut&nbsp;<span id="ChangeThis-die">Bulan</span></h3>
+                                <div align="center" style="margin-top:20px">
+                                    <input type="radio" name="die" value="month-die" id="month-die" onclick="Clicked_Die()" checked><label for="month-die">&nbsp;&nbsp;Bulan&nbsp;&nbsp;</label>
+                                    <input type="radio" name="die" value="day-die" id="day-die" onclick="Clicked_Die()"><label for="day-die">&nbsp;&nbsp;Hari&nbsp;&nbsp;</label>
                                 </div>
+                                <canvas id="linebar-chartcanvas-die"></canvas>
                                 <!--
                                     <div class="canvas-container ">
                                     
@@ -182,7 +180,7 @@
 
                                     async function getData_Bulan_Die() {
                                         if (label_bulan_die.length == 0 && value_bulan_die.length == 0) {
-                                            const response = await fetch('https://raw.githubusercontent.com/dwinissaa/skripsi/main/DATA/TEWAS-BULAN.csv')
+                                            const response = await fetch('./DATA/TEWAS-BULAN.csv')
                                             const data = await response.text()
                                             const table = data.split('\n').slice(1);
                                             label_bulan_die.push("");
@@ -205,7 +203,7 @@
 
                                     async function getData_Hari_Die() {
                                         if (label_hari_die.length == 0 && value_hari_die.length == 0) {
-                                            const response = await fetch('https://raw.githubusercontent.com/dwinissaa/skripsi/main/DATA/TEWAS-HARI.csv')
+                                            const response = await fetch('./DATA/TEWAS-HARI.csv')
                                             const data = await response.text()
                                             const table = data.split('\n').slice(1);
                                             label_hari_die.push("");
@@ -329,7 +327,7 @@
 
                                     async function getData_Bulan_Inj() {
                                         if (label_bulan_inj.length == 0 && value_bulan_inj.length == 0) {
-                                            const response = await fetch('https://raw.githubusercontent.com/dwinissaa/skripsi/main/DATA/LUKA-BULAN.csv')
+                                            const response = await fetch('./DATA/LUKA-BULAN.csv')
                                             const data = await response.text()
                                             const table = data.split('\n').slice(1);
                                             label_bulan_inj.push("");
@@ -352,7 +350,7 @@
 
                                     async function getData_Hari_Inj() {
                                         if (label_hari_inj.length == 0 && value_hari_inj.length == 0) {
-                                            const response = await fetch('https://raw.githubusercontent.com/dwinissaa/skripsi/main/DATA/LUKA-HARI.csv')
+                                            const response = await fetch('./DATA/LUKA-HARI.csv')
                                             const data = await response.text()
                                             const table = data.split('\n').slice(1);
                                             label_hari_inj.push("");
