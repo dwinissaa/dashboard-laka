@@ -114,7 +114,7 @@
                                     const label_age = new Array();
                                     const value_age = new Array();
 
-                                    fetch('https://raw.githubusercontent.com/dwinissaa/skripsi/main/DATA/UMUR.csv').then(response => response.text()).then(data_age => {
+                                    fetch('./DATA/UMUR.csv').then(response => response.text()).then(data_age => {
                                         const table_age = data_age.split('\n').slice(1);
 
                                         for (row = table_age.length - 2; row >= 0; row--) {
@@ -160,53 +160,51 @@
                         </div>
                         <div class="col-lg-6 grid-margin stretch-card ">
                             <div class="card ">
-                                <div class="card-body dashboard-tabs p-0 ">
-                                    <h3 class="title-dash font-weight-bold mb-2 ">Jumlah Berita Kecelakaan menurut Jenis Kendaraan yang Terlibat</h3>
-                                    <canvas id="bar-chartcanvas-veh"></canvas>
-                                    <script>
-                                        const label = new Array();
-                                        const value = new Array();
+                                <h3 class="title-dash font-weight-bold mb-2 ">Jumlah Berita Kecelakaan menurut Jenis Kendaraan yang Terlibat</h3>
+                                <canvas id="bar-chartcanvas-veh"></canvas>
+                                <script>
+                                    const label = new Array();
+                                    const value = new Array();
 
-                                        fetch('https://raw.githubusercontent.com/dwinissaa/skripsi/main/DATA/KENDARAAN.csv').then(response => response.text()).then(data => {
-                                            const table = data.split('\n').slice(1);
-                                            for (row = 0; row < table.length - 1; row++) {
-                                                const column = table[row].split(',')
-                                                label.push(column[0]);
-                                                value.push(parseInt(column[1]))
-                                            }
-                                            console.log(value);
-                                            ChartIt()
-                                        })
-
-                                        async function ChartIt() {
-                                            var data = {
-                                                labels: label,
-                                                datasets: [{
-                                                    axis: 'y',
-                                                    label: "Jumlah Berita",
-                                                    display: false,
-                                                    position: 'bottom',
-                                                    data: value,
-                                                    backgroundColor: "#32adb3",
-                                                    fill: false,
-                                                    lineTension: 0,
-                                                    pointRadius: 5,
-                                                }]
-                                            };
-
-                                            var ctx = $("#bar-chartcanvas-veh");
-
-                                            var chart = new Chart(ctx, {
-                                                type: "bar",
-                                                data: data,
-                                            });
+                                    fetch('./DATA/KENDARAAN.csv').then(response => response.text()).then(data => {
+                                        const table = data.split('\n').slice(1);
+                                        for (row = 0; row < table.length - 1; row++) {
+                                            const column = table[row].split(',')
+                                            label.push(column[0]);
+                                            value.push(parseInt(column[1]))
                                         }
-                                    </script>
-                                    <!--
+                                        console.log(value);
+                                        ChartIt()
+                                    })
+
+                                    async function ChartIt() {
+                                        var data = {
+                                            labels: label,
+                                            datasets: [{
+                                                axis: 'y',
+                                                label: "Jumlah Berita",
+                                                display: false,
+                                                position: 'bottom',
+                                                data: value,
+                                                backgroundColor: "#32adb3",
+                                                fill: false,
+                                                lineTension: 0,
+                                                pointRadius: 5,
+                                            }]
+                                        };
+
+                                        var ctx = $("#bar-chartcanvas-veh");
+
+                                        var chart = new Chart(ctx, {
+                                            type: "bar",
+                                            data: data,
+                                        });
+                                    }
+                                </script>
+                                <!--
                                     <div class="canvas-container ">
                                     </div>
                                     -->
-                                </div>
                             </div>
                         </div>
                     </div>
